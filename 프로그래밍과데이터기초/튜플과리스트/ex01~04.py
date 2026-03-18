@@ -1,88 +1,35 @@
-# # 2. 튜플과 리스트 ★★
+import math
 
-# ​
-# 1)
+# 공통 좌표 데이터
+points = [(1, 2), (3, 4), (-1, 5), (2, -3), (0, 0), (4, 1), (-2, -2)]
 
-# # (x, y)형태 리스트 생성
 
-# lst = [(1, 2), (3, 4), (-1, 5), (2, -3), (0, 0), (4, 1), (-2, -2)]
+# 1️⃣ 원점 기준 거리 ≤ 3 인 좌표 (x^2 + y^2 ≤ 9)
+within_distance = [
+    (x, y)
+    for x, y in points
+    if x**2 + y**2 <= 9
+]
+print(within_distance)
 
-# ​
 
-# # 리스트 컴프리헨션을 사용해 새로운 리스트
+# 2️⃣ y좌표 반전 (대칭 이동)
+reflected = [(x, -y) for x, y in points]
+print(reflected)
 
-# # lst에서 (x, y)를 하나씩 꺼내면서
 
-# # 거리 공식 값이 9이하인 경우만 필터링
+# 3️⃣ 1사분면 좌표 개수 (x > 0, y > 0)
+first_quadrant = [
+    (x, y)
+    for x, y in points
+    if x > 0 and y > 0
+]
+print(len(first_quadrant))
 
-# result = [(x, y) for x, y in lst if x**2 + y**2 <= 9]
 
-# ​
-
-# # 필터링된 결과 출력
-
-# print(result)
-
-# ​
-
-# ​
-
-# 2)
-
-# lst = [(1, 2), (3, 4), (-1, 5), (2, -3), (0, 0), (4, 1), (-2, -2)]
-
-# ​
-
-# # 새로운 좌표 리스트 생성
-
-# result = [(x, -y) for x, y in lst]
-
-# ​
-
-# # 프린팅
-
-# print(result)
-
-# ​
-
-# ​
-
-# 3)
-
-# lst = [(1, 2), (3, 4), (-1, 5), (2, -3), (0, 0), (4, 1), (-2, -2)]
-
-# ​
-
-# result = [(x, y) for x, y in lst if x > 0 and y > 0]
-
-# ​
-
-# print(len(result))
-
-# ​
-
-# # count함수는 문자열에서 쓰이는 메서드
-
-# ​
-
-# ​
-
-# 4)
-
-# import math
-
-# ​
-
-# lst = [(1, 2), (3, 4), (-1, 5), (2, -3), (0, 0), (4, 1), (-2, -2)]
-
-# ​
-
-# result = [math.sqrt(x**2 + y**2) for x, y in lst]
-
-# ​
-
-# print(result)
-
-# ​
-
-# # 리스트 생성에서 계속 [] 중괄호 빼먹음 잊지말것
+# 4️⃣ 원점으로부터 거리 계산
+distances = [
+    math.sqrt(x**2 + y**2)
+    for x, y in points
+]
+print(distances)
